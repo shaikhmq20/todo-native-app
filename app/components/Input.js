@@ -3,29 +3,14 @@ import React, { useState } from "react";
 
 import TodoLists from "../components/TodoLists";
 
-export default function Input() {
-  const [task, settask] = useState("");
-  const [selectList, setselectList] = useState([]);
-  const [tasks, settasks] = useState([]);
-
-  const addTask = (task) => {
-    const found = tasks.find((obj) => obj.value === task.value);
-    if (!found && task.value !== "")
-      settasks([task, ...tasks]);
-    else if (found)
-      alert("Cannot add Duplicate Task");
-  };
-
-  const updateselectList = (task) => {
-    const found = selectList.find((obj) => obj.value === task.value);
-    if (!found) {
-      setselectList([task, ...selectList]);
-    } else if (found) {
-      const newselectList = selectList.filter((obj) => obj.value !== task.value);
-      setselectList(newselectList);
-    }
-  }
-
+export default function Input({
+  task,
+  tasks,
+  settask,
+  selectList,
+  updateselectList,
+  addTask,
+}) {
   return (
     <View style={styles.inputContainer}>
       <TextInput
@@ -36,11 +21,15 @@ export default function Input() {
         style={styles.input}
         placeholder="Want to do some task?"
         onSubmitEditing={() => {
-          addTask({value: task});
+          addTask({ value: task });
           settask("");
         }}
       />
-      <TodoLists tasks={tasks} selectList={selectList} updateselectList={updateselectList}/>
+      <TodoLists
+        tasks={tasks}
+        selectList={selectList}
+        updateselectList={updateselectList}
+      />
     </View>
   );
 }
