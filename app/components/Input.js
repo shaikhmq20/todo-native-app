@@ -5,10 +5,8 @@ import TodoLists from "../components/TodoLists";
 
 export default function Input() {
   const [task, settask] = useState("");
-  const [tasks, settasks] = useState([
-    { value: "First task" },
-    { value: "Second Task" },
-  ]);
+  const [selectList, setselectList] = useState([]);
+  const [tasks, settasks] = useState([]);
 
   const addTask = (task) => {
     const found = tasks.find((obj) => obj.value === task.value);
@@ -17,6 +15,16 @@ export default function Input() {
     else if (found)
       alert("Cannot add Duplicate Task");
   };
+
+  const updateselectList = (task) => {
+    const found = selectList.find((obj) => obj.value === task.value);
+    if (!found) {
+      setselectList([task, ...selectList]);
+    } else if (found) {
+      const newselectList = selectList.filter((obj) => obj.value !== task.value);
+      setselectList(newselectList);
+    }
+  }
 
   return (
     <View style={styles.inputContainer}>
@@ -32,7 +40,7 @@ export default function Input() {
           settask("");
         }}
       />
-      <TodoLists tasks={tasks} />
+      <TodoLists tasks={tasks} selectList={selectList} updateselectList={updateselectList}/>
     </View>
   );
 }

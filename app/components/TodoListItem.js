@@ -1,15 +1,39 @@
 import { View, Text, StyleSheet, TouchableHighlight } from "react-native";
 import React from "react";
 
-import { MaterialIcons } from '@expo/vector-icons';
+import { MaterialIcons } from "@expo/vector-icons";
 
-export default function TodoListItem({ index, todo }) {
+export default function TodoListItem({
+  index,
+  todo,
+  selectList,
+  updateselectList,
+}) {
+  const getIconName = () => {
+    const found = selectList.find((obj) => obj.value === todo.value);
+    return found ? "check-circle" : "radio-button-unchecked";
+  };
+
   return (
-    <TouchableHighlight style={styles.todoHighlight} underlayColor={"lightgrey"}onPress={() => console.log(todo)}>
+    <TouchableHighlight
+      style={styles.todoHighlight}
+      underlayColor={"#fcfcfc"}
+      onPress={() => selectList.length !== 0 && updateselectList(todo)}
+      onLongPress={() => {
+        updateselectList(todo);
+      }}
+    >
       <View style={styles.todoContainer}>
         <Text style={[styles.index, styles.text]}>{index + 1}</Text>
         <Text style={[styles.text, styles.todo]}>{todo.value}</Text>
-        <MaterialIcons style={{marginRight: 15}} name="check-box" size={24} color="dodgerblue" />
+        {selectList.length !== 0 && (
+          <MaterialIcons
+            style={{ marginRight: 15 }}
+            name={getIconName()}
+            size={24}
+            color="dodgerblue"
+          />
+        )}
       </View>
     </TouchableHighlight>
   );
@@ -27,7 +51,7 @@ const styles = StyleSheet.create({
     marginRight: "auto",
   },
   todoHighLight: {
-    backgroundColor: '#fcfcfc',
+    backgroundColor: "white",
   },
   todoContainer: {
     borderRadius: 10,
