@@ -10,7 +10,7 @@ export default function HomeScreen() {
 
   const addTask = (task) => {
     const found = tasks.find((obj) => obj.value === task.value);
-    if (!found && task.value !== "") settasks([task, ...tasks]);
+    if (!found && task.value !== "") settasks([...tasks, task]);
     else if (found) alert("Cannot add Duplicate Task");
   };
 

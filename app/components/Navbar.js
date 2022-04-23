@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontFamily: "Roboto",
     fontSize: 20,
-    fontWeight: "600",
+    fontWeight: "800",
   },
   iconContainer: {
     marginLeft: "auto",

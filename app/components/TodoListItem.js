@@ -15,10 +15,18 @@ export default function TodoListItem({
   };
 
   return (
-    <View  style={{marginTop: 15}}>
+    <View
+      style={{
+        marginTop: 15,
+        backgroundColor: "#D4F1F4",
+        borderRadius: 50,
+        overflow: "hidden",
+        justifyContent: "center",
+      }}
+    >
       <TouchableHighlight
         style={styles.todoHighlight}
-        underlayColor={"#fcfcfc"}
+        underlayColor={"#B1D4E0"}
         onPress={() => selectList.length !== 0 && updateselectList(todo)}
         onLongPress={() => {
           updateselectList(todo);
@@ -43,24 +51,28 @@ export default function TodoListItem({
 
 const styles = StyleSheet.create({
   index: {
-    marginHorizontal: 10,
+    marginLeft: 20,
+    marginRight: 20,
   },
   text: {
     fontWeight: "bold",
     fontSize: 18,
+    color: "#05445E",
   },
   todo: {
     marginRight: "auto",
+    width: "60%"
   },
   todoHighLight: {
-    backgroundColor: "white",
+    borderRadius: 50,
   },
   todoContainer: {
-    borderRadius: 10,
     width: "100%",
     paddingTop: 15,
     paddingBottom: 10,
     display: "flex",
     flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
