@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
     borderColor: "dodgerblue",
     borderRadius: 10,
     width: "75%",
+    fontSize: 15,
     paddingVertical: 10,
     paddingHorizontal: 15,
   },
