@@ -15,27 +15,29 @@ export default function TodoListItem({
   };
 
   return (
-    <TouchableHighlight
-      style={styles.todoHighlight}
-      underlayColor={"#fcfcfc"}
-      onPress={() => selectList.length !== 0 && updateselectList(todo)}
-      onLongPress={() => {
-        updateselectList(todo);
-      }}
-    >
-      <View style={styles.todoContainer}>
-        <Text style={[styles.index, styles.text]}>{index + 1}</Text>
-        <Text style={[styles.text, styles.todo]}>{todo.value}</Text>
-        {selectList.length !== 0 && (
-          <MaterialIcons
-            style={{ marginRight: 15 }}
-            name={getIconName()}
-            size={24}
-            color="dodgerblue"
-          />
-        )}
-      </View>
-    </TouchableHighlight>
+    <View  style={{marginTop: 15}}>
+      <TouchableHighlight
+        style={styles.todoHighlight}
+        underlayColor={"#fcfcfc"}
+        onPress={() => selectList.length !== 0 && updateselectList(todo)}
+        onLongPress={() => {
+          updateselectList(todo);
+        }}
+      >
+        <View style={styles.todoContainer}>
+          <Text style={[styles.index, styles.text]}>{index + 1}</Text>
+          <Text style={[styles.text, styles.todo]}>{todo.value}</Text>
+          {selectList.length !== 0 && (
+            <MaterialIcons
+              style={{ marginRight: 15 }}
+              name={getIconName()}
+              size={24}
+              color="dodgerblue"
+            />
+          )}
+        </View>
+      </TouchableHighlight>
+    </View>
   );
 }
 
