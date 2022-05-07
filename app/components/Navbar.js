@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   },
   iconContainer: {
     marginLeft: "auto",
-    borderRadius: 25,
-    padding: 5,
+    borderRadius: 35,
+    padding: 7,
   },
 });
