@@ -27,17 +27,26 @@ export default function HomeScreen() {
   };
 
   const deleteTask = () => {
-    const newTasks = [...tasks];
     const indices = [];
-    for (let item of selectList) indices.push(newTasks.indexOf(item));
-    for (let index of indices) newTasks.splice(index, 1);
-    setselectList([]);
+    for (let selected of selectList) {
+      indices.push(tasks.indexOf(selected));
+    }
+    const newTasks = [];
+    for (let i = 0; i < tasks.length; i++) {
+      if (indices.indexOf(i) == -1) newTasks.push(tasks[i]);
+    }
     settasks(newTasks);
+    console.log("Hello World")
+    setselectList([]);
   };
+
+  const unselect = () => {
+    setselectList([]);
+  }
 
   return (
     <View>
-      <Navbar selectList={selectList} deleteTask={deleteTask} />
+      <Navbar selectList={selectList} deleteTask={deleteTask} unselect={unselect}/>
       <Input
         task={task}
         tasks={tasks}

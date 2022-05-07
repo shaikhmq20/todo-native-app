@@ -51,7 +51,7 @@ export default function TodoListItem({
 
 const styles = StyleSheet.create({
   index: {
-    marginLeft: 20,
+    marginLeft: 15,
     marginRight: 20,
   },
   text: {

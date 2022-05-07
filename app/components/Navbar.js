@@ -1,20 +1,33 @@
 import { View, Text, StyleSheet, TouchableHighlight } from "react-native";
 import React from "react";
 
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 
-export default function Navbar({ selectList, deleteTask }) {
+export default function Navbar({ selectList, deleteTask, unselect }) {
   return (
     <View style={styles.navbar}>
       <Text style={styles.text}>Todo</Text>
       {selectList.length !== 0 && (
-        <TouchableHighlight
-          style={styles.iconContainer}
-          underlayColor={"#63acf2"}
-          onPress={() => deleteTask()}
-        >
-          <MaterialCommunityIcons name="delete" size={30} color="white" />
-        </TouchableHighlight>
+        <View style={{flexDirection: "row", marginLeft: "auto", marginRight: 20}}>
+          <View style={{marginHorizontal: 15}}>
+            <TouchableHighlight
+              style={styles.iconContainer}
+              underlayColor={"#63acf2"}
+              onPress={() => unselect()}
+            >
+              <MaterialIcons name="cancel" size={30} color="white" />
+            </TouchableHighlight>
+          </View>
+          <View>
+            <TouchableHighlight
+              style={styles.iconContainer}
+              underlayColor={"#63acf2"}
+              onPress={() => deleteTask()}
+            >
+              <MaterialCommunityIcons name="delete" size={30} color="white" />
+            </TouchableHighlight>
+          </View>
+        </View>
       )}
     </View>
   );
@@ -35,7 +48,7 @@ const styles = StyleSheet.create({
     fontWeight: "800",
   },
   iconContainer: {
-    marginLeft: "auto",
+    // marginLeft: "auto",
     borderRadius: 35,
     padding: 7,
   },
