@@ -68,8 +68,8 @@ const styles = StyleSheet.create({
   },
   todoContainer: {
     width: "100%",
-    paddingTop: 15,
-    paddingBottom: 10,
+    paddingHorizontal: 10,
+    paddingVertical: 15,
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
