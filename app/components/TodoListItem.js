@@ -51,12 +51,17 @@ export default function TodoListItem({
 
 const styles = StyleSheet.create({
   index: {
-    marginLeft: 15,
+    marginLeft: 10,
     marginRight: 20,
+    backgroundColor: "#7EC8E3",
+    width: 32,
+    padding: 5,
+    textAlign: "center",
+    borderRadius: 50,
   },
   text: {
     fontWeight: "bold",
-    fontSize: 18,
+    fontSize: 15,
     color: "#05445E",
   },
   todo: {
