@@ -40,7 +40,7 @@ export default function TodoListItem({
               style={{ marginRight: 15 }}
               name={getIconName()}
               size={24}
-              color="dodgerblue"
+              color="#77DD77"
             />
           )}
         </View>
